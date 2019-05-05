@@ -2,6 +2,7 @@
   let form = document.querySelector('.form'),
       positionField = document.querySelector('.form__input');
   
+  // функция для обработки результата 
   function submitHandler(e){
     e.preventDefault();
     let position = positionField.value;
@@ -11,6 +12,7 @@
 
   function getPositionsOfHorse(pos){
     let hor = ['A','B','C','D','E','F','G','H'];
+    // всевозможные позиции коня относительно при добавлении к текущей позиции
     let arrPossiblePosition = [
       {x: 2, y: -1},
       {x: 1, y: -2},
@@ -24,6 +26,7 @@
     let resultPos = [];
     let [x,y] = pos.split('');
 
+    // приводим позиция из буквенного в числовую
     x = hor.findIndex(ch => ch == x) + 1;
     y = +y;
 
