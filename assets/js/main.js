@@ -2,10 +2,18 @@
   let form = document.querySelector('.form'),
       positionField = document.querySelector('.form__input');
   
+  // функция для валидации входного параметра
+  function validation(value){
+    return /[A-Z][1-8]/g.test(value);
+  }
   // функция для обработки результата 
   function submitHandler(e){
     e.preventDefault();
     let position = positionField.value;
+    if (!validation(position)){
+      alert("Введите валидное значение в поле");
+      return;
+    }
     let possiblePositions = getPositionsOfHorse(position);
     alert(`Возможные варианты хода - \n\n ${possiblePositions.join(' ')}`);
   }
